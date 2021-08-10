@@ -5,7 +5,7 @@ sudo chown -R build /github/workspace /github/home
 fi
 
 sudo pacman -Syu --noconfirm
-sudo makepkg -si
+sudo makepkg -si --skippgpcheck
 for pkg in $INPUT_PACKAGES; do
     yay -S "$pkg" --noconfirm --needed --nopgpfetch --useask --gpgflags "--keyserver pgp.mit.edu" || exit $?
 done
